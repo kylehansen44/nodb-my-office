@@ -4,28 +4,28 @@
         "first_name": "Michael",
         "last_name": "Scott",
         "position": "Regional Manager",
-        "birthday": "3/15/1965" 
+        "birthday": "03/15/1965" 
     },
     {
         "id": 2,
         "first_name": "Dwight",
         "last_name": "Schrute",
         "position": "Assistant to the Regional Manager",
-        "birthday": "1/20/1970"  
+        "birthday": "01/20/1970"  
     },
     {
         "id": 3,
         "first_name": "Pam",
         "last_name": "Beesly",
         "position": "Receptionist",
-        "birthday": "3/25/1979" 
+        "birthday": "03/25/1979" 
     },
     {
         "id": 4,
         "first_name": "Jim",
         "last_name": "Halpert",
         "position": "Sales",
-        "birthday": "8/1/1978" 
+        "birthday": "08/01/1978" 
     },
     {
         "id": 5,
@@ -46,13 +46,13 @@
         "first_name": "Kevin",
         "last_name": "Malone",
         "position": "Accounting",
-        "birthday": "6/1/1968" 
+        "birthday": "06/01/1968" 
     },
     {
         "id": 8,
         "first_name": "Kelly",
         "last_name": "Kapoor",
         "position": "Customer Service",
-        "birthday": "2/5/1980" 
+        "birthday": "02/05/1980" 
     }
 ]
