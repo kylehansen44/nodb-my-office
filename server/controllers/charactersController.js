@@ -1,42 +1,40 @@
-const characters = require ('../data.json')
+const characters = require('../data.json')
 
-const { filter } = require ('../data.json')
+const { filter } = require('../data.json')
 
 let newId = characters[characters.length - 1].id + 1
 
-const character = { id: 0, first_name: "", last_name: "", position: "", birthday: ""}
+const character = { id: 0, first_name: "", last_name: "", position: "", birthday: "" }
 
 module.exports = {
-    getAllCharacters: (req, res) => {
-        console.log('hit get all character')
-        res.status(200).send(characters)
-    },
-    searchCharacters: (req, res) => {
-        const { id } = req.params
-        const { first_name, last_name, position, birthday } = req.body
-        const { input } = req.query
+    getCharacters: (req, res) => {
+        console.log(req.query)
+        if (req.query.search) {
+            const filteredCharacters = characters.filter(element => element.id == req.query.search || element.first_name === req.query.search || element.last_name === req.query.search || element.position === req.query.search || element.birthday === req.query.search)
+            console.log(filteredCharacters)
+            res.status(200).send(filteredCharacters)
 
-        const filteredCharacter = characters.filter(element => input === id || input === first_name)
+        } else {
+            res.status(200).send(characters)
 
-        console.log(filteredCharacter)
-        res.status(200).send(filteredCharacter)
+        }
     },
     addCharacter: (req, res) => {
         console.log(req.body)
-    const { first_name, last_name, position, birthday } = req.body
+        const { first_name, last_name, position, birthday } = req.body
 
-    const newCharacter = {
-      id: newId,
-      first_name,
-      last_name,
-      position,
-      birthday
-    }
+        const newCharacter = {
+            id: newId,
+            first_name,
+            last_name,
+            position,
+            birthday
+        }
 
-    characters.push(newCharacter)
+        characters.push(newCharacter)
 
-    newId++
+        newId++
 
-    res.status(200).send(characters)
+        res.status(200).send(characters)
     }
 }

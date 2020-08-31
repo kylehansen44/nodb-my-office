@@ -1,9 +1,9 @@
-let characters = require ('../data.json')
+let characters = require('../data.json')
 
-let character = { id: 0, first_name: "", last_name: "", position: "", birthday: ""}
+let character = { id: 0, first_name: "", last_name: "", position: "", birthday: "" }
 
 module.exports = {
-    editCharacter: (req, res) => {
+  editCharacter: (req, res) => {
     const { first_name, last_name, position, birthday } = req.body
 
     const existingCharacter = characters
@@ -19,13 +19,18 @@ module.exports = {
     characters = modifiedCharacter
 
     res.status(200).send(characters)
-    },
-    deleteCharacter: (req, res) => {
-        character.first_name = ""
-        character.last_name = ""
-        character.position = ""
-        character.birthday = ""
+  },
+  deleteCharacter: (req, res) => {
+    // character.first_name = ""
+    // character.last_name = ""
+    // character.position = ""
+    // character.birthday = ""
+    const { id } = req.params
+    console.log(+id)
+    const index = characters.findIndex((e) => e.id === +id)
+    console.log(index)
+    characters.splice(index, 1)
 
-        res.status(200).send(character)
-    },
+    res.status(200).send(characters)
+  },
 }

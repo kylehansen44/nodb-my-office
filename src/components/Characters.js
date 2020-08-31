@@ -1,34 +1,42 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import Display from './Display'
 
 class Characters extends Component {
-  constructor() {
-    super()
-    this.state = {
-      
+    constructor() {
+        super()
+        this.state = {
+            first_name: '',
+            last_name: '',
+            position: '',
+            birthday: '',
+            input: ''
+        }
+        this.handleInput = this.handleInput.bind(this)
     }
+    handleInput(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
-    
-    addCharacter
 
-    searchCharacter
-
-    render(){
-        return(
+    render() {
+        return (
             <div className='characters'>
                 <div className="inputBars">
-                    <input placeholder='First Name'></input>
-                    <input placeholder='Last Name'></input>
-                    <input placeholder='Position'></input>
-                    <input placeholder='Birthday mm/dd/yyyy'></input>
+                    <input name='first_name' placeholder='First Name' onChange={this.handleInput}></input>
+                    <input name='last_name' placeholder='Last Name' onChange={this.handleInput}></input>
+                    <input name='position' placeholder='Position' onChange={this.handleInput}></input>
+                    <input name='birthday' placeholder='Birthday' onChange={this.handleInput}></input>
                 </div>
                 <div className="buttons">
-                    <button>Search</button>
-                    <button>Add Character</button>
+                    <input name='input' placeholder="Search" onChange={this.handleInput}></input>
+                    <button onClick={() => this.props.searchCharacter(this.state.input)}>Search</button>
+                    <button onClick={() => this.props.addCharacter(this.state.first_name, this.state.last_name, this.state.position, this.state.birthday)}>Add Character</button>
                 </div>
             </div>
         )
     }
-}  
+}
 
 export default Characters
